@@ -11,9 +11,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody body;
     [SerializeField] private float PlayerSpeed = 10;
+    [SerializeField] Transform modelTransform;
 
 
     private float MoveInput;
+    private float sidewaysInput;
         
 
     // Start is called before the first frame update
@@ -26,17 +28,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MoveInput = Input.GetAxis("Vertical");
+        sidewaysInput = Input.GetAxis("Horizontal");
+        
+        Vector3 direction = (Vector3.forward *  MoveInput + Vector3.right * sidewaysInput).normalized;
+
+        Vector3 moveVector = direction * (PlayerSpeed * Time.deltaTime);
+        moveVector.y = body.velocity.y;
+        body.velocity = moveVector;
+
+        modelTransform.LookAt(direction + modelTransform.position, Vector3.up);
     }
 
 
     private void FixedUpdate()
     {
-        //Vector3
-        {
-            
-        }
-        
-        
+       
     }
 
 
