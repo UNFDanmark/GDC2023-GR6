@@ -1,10 +1,9 @@
+ using System;
  using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-
-
-
+ using UnityEngine.PlayerLoop;
 
 
  public class PlayerMovement : MonoBehaviour
@@ -17,6 +16,9 @@ using UnityEngine;
      [SerializeField] private float DashCooldown = 10;
     // [SerializeField] private float Dashtimer;
 
+    private float TimeLeaftBetweenDashes=0;
+    private float DashCooldownBetweenDashes=1;
+
      [SerializeField] private float Maxdashpoints = 30;
      //variabel for hvad dashtimeren max tæler op til
      [SerializeField] private float dashCounter;
@@ -24,6 +26,7 @@ using UnityEngine;
      private float MoveInput;
      private float sidewaysInput;
      private bool DashInput;
+     private Vector3 direction;
 
 
 
@@ -36,29 +39,30 @@ using UnityEngine;
      // Update is called once per frame
      void Update()
      {
+         
          MoveInput = Input.GetAxis("Vertical");
          sidewaysInput = Input.GetAxis("Horizontal");
+         direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
         // DashInput = Input.GetKey("K");
-   
+
+        TimeLeaftBetweenDashes -= Time.deltaTime;
         
         // implement a way to stop player from using dash when idle
-         if (Input.GetKeyDown(KeyCode.Space) && dashCounter >= DashCooldown )
+         if (Input.GetButtonDown("Jump") && dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
          {
              DashSpeed = DashspeedSerialized;
              dashCounter -= DashCooldown;
-print("cum");
+
+             TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
+
          }
          else
          {
              DashSpeed = 1;
          }
 
-         Vector3 direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
-
-         Vector3 moveVector = direction * (DashSpeed * PlayerSpeed * Time.deltaTime);
-         moveVector.y = body.velocity.y;
-         body.velocity = moveVector;
          
+        
 
       
 
@@ -71,5 +75,16 @@ print("cum");
 
 
          modelTransform.LookAt(direction + modelTransform.position, Vector3.up);
+     }
+
+     private void FixedUpdate()
+     {
+         
+        
+
+         Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
+         moveVector.y = body.velocity.y;
+         body.velocity = moveVector;
+
      }
  }
