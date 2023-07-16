@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FoodScript : MonoBehaviour
 {
+    
+    public Foodspawnerscript FoodSpawner;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,14 @@ public class FoodScript : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-                
+
+            FoodSpawner.AmountOfFood--;
+            
+            print("completed code");
             Destroy(gameObject);
+             
+            
+            
         }
     }
 }
