@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
-public class Foodspawnerskript : MonoBehaviour
+public class Foodspawnerscript : MonoBehaviour
 {
 
     public GameObject Food;
@@ -13,10 +13,10 @@ public class Foodspawnerskript : MonoBehaviour
     [SerializeField] private float maxX;
     [SerializeField] private float Ypos;
      private float FoodSpawnTimer = 0f;
-     private float AmountOfFood;
+     public float AmountOfFood;
     [SerializeField] private float MaxAmountFood;
     [SerializeField] private float FoodSpawnRate;
-    
+    public GameObject foodItem;
     
     // Start is called before the first frame update
     void Start()
@@ -38,10 +38,11 @@ public class Foodspawnerskript : MonoBehaviour
             float Xpos = Random.Range(minX, maxX);
             float Zpos = Random.Range(minZ, maxZ);
 
-            Instantiate(Food, new Vector3(Xpos, Ypos, Zpos), Quaternion.identity);
-
-            AmountOfFood++;
-            print(FoodSpawnTimer);
+           GameObject foodItem = Instantiate(Food, new Vector3(Xpos, Ypos, Zpos), Quaternion.identity);
+           FoodScript foodScript = foodItem.GetComponent<FoodScript>();
+           foodScript.FoodSpawner = this;
+           AmountOfFood++;
+          
             FoodSpawnTimer = 0;
 
 
