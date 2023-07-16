@@ -15,10 +15,11 @@ using UnityEngine;
      [SerializeField] Transform modelTransform;
      [SerializeField] private float DashspeedSerialized = 5;
      [SerializeField] private float DashCooldown = 10;
-     [SerializeField] private float Dashtimer;
+    // [SerializeField] private float Dashtimer;
 
      [SerializeField] private float Maxdashpoints = 30;
      //variabel for hvad dashtimeren max tæler op til
+     [SerializeField] private float dashCounter;
 
      private float MoveInput;
      private float sidewaysInput;
@@ -37,32 +38,34 @@ using UnityEngine;
      {
          MoveInput = Input.GetAxis("Vertical");
          sidewaysInput = Input.GetAxis("Horizontal");
-         DashInput = Input.GetButtonDown("Jump");
+        // DashInput = Input.GetKey("K");
    
-         
-
-         Vector3 direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
-
-         Vector3 moveVector = direction * (DashSpeed * PlayerSpeed * Time.deltaTime);
-         moveVector.y = body.velocity.y;
-         body.velocity = moveVector;
-         print(DashInput);
-
-         if (DashInput && Dashtimer >= DashCooldown)
+        
+        // implement a way to stop player from using dash when idle
+         if (Input.GetKeyDown(KeyCode.Space) && dashCounter >= DashCooldown )
          {
              DashSpeed = DashspeedSerialized;
-             Dashtimer -= DashCooldown;
-
+             dashCounter -= DashCooldown;
+print("cum");
          }
          else
          {
              DashSpeed = 1;
          }
 
+         Vector3 direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
+
+         Vector3 moveVector = direction * (DashSpeed * PlayerSpeed * Time.deltaTime);
+         moveVector.y = body.velocity.y;
+         body.velocity = moveVector;
+         
+
+      
+
          //Dashtimer tæler op til 30
-         if (Dashtimer < Maxdashpoints) ;
+         if (dashCounter < Maxdashpoints)
          {
-             Dashtimer = Dashtimer + Time.deltaTime;
+             dashCounter += Time.deltaTime;
          }
 
 

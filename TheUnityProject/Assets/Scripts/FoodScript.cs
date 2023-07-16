@@ -26,7 +26,7 @@ public class FoodScript : MonoBehaviour
 
             FoodSpawner.AmountOfFood--;
             
-            print("completed code");
+           
             Destroy(gameObject);
              
             

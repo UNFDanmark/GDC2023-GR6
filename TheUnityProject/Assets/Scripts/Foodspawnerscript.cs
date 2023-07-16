@@ -42,7 +42,7 @@ public class Foodspawnerscript : MonoBehaviour
            FoodScript foodScript = foodItem.GetComponent<FoodScript>();
            foodScript.FoodSpawner = this;
            AmountOfFood++;
-            print(FoodSpawnTimer);
+          
             FoodSpawnTimer = 0;
 
 
