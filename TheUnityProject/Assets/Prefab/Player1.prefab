@@ -61,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &3158024997829310422
 MonoBehaviour:
@@ -95,6 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c0be58a922e2540b46f7eab50146c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BiteAttackTimer: 5
+  BiteAttackCooldown: 5
+  BufferTimer: 0
+  BufferCooldown: 1
+  PlayerHP: 10
+  BiteAttackDamage: 10
+  MainPlayerScript: {fileID: 3158024997829310422}
+  BiteAttackArea1: {fileID: 6188465266521416845}
 --- !u!1 &4328761591835902131
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5127138420218457964}
+  - {fileID: 8117064434652241448}
   m_Father: {fileID: 7219051151039350069}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 91.777, z: 0}
@@ -421,3 +430,56 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &6188465266521416845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8117064434652241448}
+  - component: {fileID: 4404311096027768057}
+  m_Layer: 0
+  m_Name: BiteAttackArea
+  m_TagString: BiteAttackArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8117064434652241448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6188465266521416845}
+  m_LocalRotation: {x: -0, y: -0.71798456, z: -0, w: 0.69605905}
+  m_LocalPosition: {x: -0.014624514, y: 0, z: 0.86765033}
+  m_LocalScale: {x: 0.35023567, y: 1.1666665, z: 1.164056}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8237511414252862738}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4404311096027768057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6188465266521416845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
