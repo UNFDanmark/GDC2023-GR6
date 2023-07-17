@@ -14,6 +14,7 @@ using UnityEngine;
      [SerializeField] Transform modelTransform;
      [SerializeField] private float DashspeedSerialized = 5;
      [SerializeField] private float DashCooldown = 10;
+     [SerializeField] public int playerNumber;
     // [SerializeField] private float Dashtimer;
 
     private float TimeLeaftBetweenDashes=0;
@@ -39,28 +40,60 @@ using UnityEngine;
      // Update is called once per frame
      void Update()
      {
+         if (playerNumber == 1)
+         {
+             MoveInput = Input.GetAxis("VerticalPlayer1");
+             sidewaysInput = Input.GetAxis("HorizontalPlayer1");
+             direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
+         }
+         if (playerNumber == 2)
+         {
+             MoveInput = Input.GetAxis("VerticalPlayer2");
+             sidewaysInput = Input.GetAxis("HorizontalPlayer2");
+             direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
+         }
          
-         MoveInput = Input.GetAxis("Vertical");
-         sidewaysInput = Input.GetAxis("Horizontal");
-         direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
-        // DashInput = Input.GetKey("K");
-
+      
+         
+// constantly counting from DashcooldownBetweenDashes which is 1 to negative value
         TimeLeaftBetweenDashes -= Time.deltaTime;
         
         // implement a way to stop player from using dash when idle
-         if (Input.GetButtonDown("Jump") && dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
-         {
-             DashSpeed = DashspeedSerialized;
-             dashCounter -= DashCooldown;
+        
+        //TimeleaftBetweenDashes stops player from dashing more than once a second
 
-             TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
+        if (playerNumber == 1)
+        {
+            if (Input.GetButtonDown("DashPlayer1") && dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
+            {
+                DashSpeed = DashspeedSerialized;
+                dashCounter -= DashCooldown;
 
-         }
-         else
-         {
-             DashSpeed = 1;
-         }
+                TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
 
+            }
+            else
+            {
+                DashSpeed = 1;
+            }
+
+        }
+        if (playerNumber == 2)
+        {
+            if (Input.GetButtonDown("DashPlayer2") && dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
+            {
+                DashSpeed = DashspeedSerialized;
+                dashCounter -= DashCooldown;
+
+                TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
+
+            }
+            else
+            {
+                DashSpeed = 1;
+            }
+
+        }
          
         
 
