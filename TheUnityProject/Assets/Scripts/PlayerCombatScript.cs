@@ -9,13 +9,33 @@ public class PlayerCombatScript : MonoBehaviour
 {
     [SerializeField] private float BiteAttackTimer = 5;
     [SerializeField] private float BiteAttackCooldown = 5;
-    [SerializeField] private float BufferTimer;
-    [SerializeField] private float BufferCooldown = 5;
+
+    [SerializeField] private float BiteBufferTimer;
+    [SerializeField] private float BiteBufferCooldown = 5;
+    
+    
+    [SerializeField] private float SwordAttackTimer = 5;
+    [SerializeField] private float SwordAttackCooldown = 5;
+        
+    [SerializeField] private float SwordBufferTimer;
+    [SerializeField] private float SwordBufferCooldown;
+    
+        
+        
+    
+    
     [SerializeField] private float PlayerHP = 100;
     [SerializeField] private float BiteAttackDamage = 10;
+    [SerializeField] private bool SwordPurchased = false;
+    
+    
+    [SerializeField]
+    
+    
     public PlayerMovement MainPlayerScript;
     
     public GameObject BiteAttackArea1;
+    public GameObject SwordAttackArea1;
     
     
     
@@ -53,6 +73,11 @@ public class PlayerCombatScript : MonoBehaviour
 
            
             
+            } else if (other.CompareTag("SwordAttackArea"))
+            {
+                
+                print("replace later?");
+                
             }
                 
         }
@@ -60,36 +85,78 @@ public class PlayerCombatScript : MonoBehaviour
     {
         if (MainPlayerScript.playerNumber == 1)
         {
-            if (Input.GetButtonDown("BiteAttackPlayer1") && BiteAttackTimer <= 0)
+            if (Input.GetButtonDown("BiteAttackPlayer1") && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
-                print("Player 1 attacked!");
+                print("Player 1 bite attacked!");
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
-                BufferTimer = BufferCooldown;
+                BiteBufferTimer = BiteBufferCooldown;
 
+            } else if (SwordAttackTimer <=0 && SwordPurchased == true)
+            {
+                print("Player 1 sword attacked!");
+                SwordAttackTimer = SwordAttackCooldown;
+                BiteAttackArea1.SetActive(true);
+                SwordBufferTimer = SwordBufferCooldown;
             }
-        }
+            
+           
+            
 
+        }
         if (MainPlayerScript.playerNumber == 2)
         {
-            if (Input.GetKeyDown(KeyCode.K) && BiteAttackTimer <= 0)
+            if (Input.GetButtonDown("BiteAttackPlayer2") && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
-                print("Player 2 attacked!");
+                print("Player 2 bite attacked!");
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
-                BufferTimer = BufferCooldown;
+                BiteBufferTimer = BiteBufferCooldown;
 
+            } else if (SwordAttackTimer <=0 && SwordPurchased == true)
+            {
+                print("Player 2 sword attacked!");
+                SwordAttackTimer = SwordAttackCooldown;
+                BiteAttackArea1.SetActive(true);
+                SwordBufferTimer = SwordBufferCooldown;
             }
-        }
+            
+           
+            
 
-        if (BufferTimer <=0)
+        }
+        
+
+        if (BiteBufferTimer <=0)
         {
             BiteAttackArea1.SetActive(false);
             
         }
 
-        BufferTimer -= Time.deltaTime;
+        BiteBufferTimer -= Time.deltaTime;
         BiteAttackTimer -= Time.deltaTime;
+        SwordBufferTimer -= Time.deltaTime;
+        SwordAttackTimer -= Time.deltaTime;
+
+        /*
+        if (PlayerHP <= 0) ;
+        {
+
+            if (MainPlayerScript.playerNumber == 1)
+
+            {
+                Player 1 Wins 
+                    Delay
+                Scene
+            }
+            else
+            {
+                Player 2 Wins 
+                    Delay
+                Scene  
+            }
+        }
+        */
 
 
     }
