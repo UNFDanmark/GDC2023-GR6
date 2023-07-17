@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7219051151039350069}
-  - component: {fileID: 6784874181813110520}
   - component: {fileID: 2834026022990237906}
   - component: {fileID: 3158024997829310422}
+  - component: {fileID: 3332453492472198693}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -36,27 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 91.777, z: 0}
---- !u!65 &6784874181813110520
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753656415870634126}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.27, y: 0.3161856, z: 1.125875}
-  m_Center: {x: -4.7623516e-11, y: -0.00013774633, z: 0.062937506}
 --- !u!54 &2834026022990237906
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,12 +77,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 2834026022990237906}
   PlayerSpeed: 10
-  DashSpeed: 1
+  DashSpeed: 25
   modelTransform: {fileID: 8237511414252862738}
-  DashspeedSerialized: 20
-  DashCooldown: 1
+  DashCooldown: 10
+  playerNumber: 1
   Maxdashpoints: 30
   dashCounter: 0
+--- !u!114 &3332453492472198693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753656415870634126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c0be58a922e2540b46f7eab50146c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4328761591835902131
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +298,7 @@ GameObject:
   - component: {fileID: 8410853573301448283}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,7 +347,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

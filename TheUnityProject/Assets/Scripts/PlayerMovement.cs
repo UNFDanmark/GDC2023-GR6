@@ -10,9 +10,8 @@ using UnityEngine;
  {
      [SerializeField] private Rigidbody body;
      [SerializeField] private float PlayerSpeed = 10;
-     [SerializeField ]private float DashSpeed = 1;
+     [SerializeField ]private float DashSpeed = 5;
      [SerializeField] Transform modelTransform;
-     [SerializeField] private float DashspeedSerialized = 5;
      [SerializeField] private float DashCooldown = 10;
      [SerializeField] public int playerNumber;
     // [SerializeField] private float Dashtimer;
@@ -45,6 +44,15 @@ using UnityEngine;
              MoveInput = Input.GetAxis("VerticalPlayer1");
              sidewaysInput = Input.GetAxis("HorizontalPlayer1");
              direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
+       
+
+             string[] joysticknames = Input.GetJoystickNames();
+             foreach (var joystickname in joysticknames)
+                 
+             {
+                 print(joystickname);
+
+             }
          }
          if (playerNumber == 2)
          {
@@ -64,34 +72,39 @@ using UnityEngine;
 
         if (playerNumber == 1)
         {
-            if (Input.GetButtonDown("DashPlayer1") && dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
+            print(Input.inputString);
+            if (Input.GetButtonDown("DashPlayer1"))
             {
-                DashSpeed = DashspeedSerialized;
-                dashCounter -= DashCooldown;
+                print("first");
+                if (dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
+                {
+                    dashCounter -= DashCooldown;
 
-                TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
-
+                    TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
+                    Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
+                    body.AddForce(moveVector, ForceMode.Impulse);
+                    print("second");
+                }
             }
-            else
-            {
-                DashSpeed = 1;
-            }
+           
 
         }
         if (playerNumber == 2)
         {
-            if (Input.GetButtonDown("DashPlayer2") && dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
+            if (Input.GetButtonDown("DashPlayer2"))
             {
-                DashSpeed = DashspeedSerialized;
-                dashCounter -= DashCooldown;
+                if (dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
+                {
+                    
+                    dashCounter -= DashCooldown;
 
-                TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
-
+                    TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
+                    Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
+                    body.AddForce(moveVector, ForceMode.Impulse);
+                }
+             
             }
-            else
-            {
-                DashSpeed = 1;
-            }
+        
 
         }
          
@@ -115,7 +128,7 @@ using UnityEngine;
          
         
 
-         Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
+         Vector3 moveVector = direction * (PlayerSpeed);
          moveVector.y = body.velocity.y;
          body.velocity = moveVector;
 
