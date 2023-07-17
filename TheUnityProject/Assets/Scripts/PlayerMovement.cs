@@ -45,7 +45,7 @@ using UnityEngine;
              sidewaysInput = Input.GetAxis("HorizontalPlayer1");
              direction = (Vector3.forward * MoveInput + Vector3.right * sidewaysInput).normalized;
        
-
+/*
              string[] joysticknames = Input.GetJoystickNames();
              foreach (var joystickname in joysticknames)
                  
@@ -53,6 +53,7 @@ using UnityEngine;
                  print(joystickname);
 
              }
+             */
          }
          if (playerNumber == 2)
          {
@@ -72,10 +73,10 @@ using UnityEngine;
 
         if (playerNumber == 1)
         {
-            print(Input.inputString);
+           // print(Input.inputString);
             if (Input.GetButtonDown("DashPlayer1"))
             {
-                print("first");
+               // print("first");
                 if (dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
                 {
                     dashCounter -= DashCooldown;
@@ -83,7 +84,7 @@ using UnityEngine;
                     TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
                     Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
                     body.AddForce(moveVector, ForceMode.Impulse);
-                    print("second");
+                  //  print("second");
                 }
             }
            
