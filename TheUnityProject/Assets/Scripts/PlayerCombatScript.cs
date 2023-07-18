@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCombatScript : MonoBehaviour
 {
-    [SerializeField] private float BiteAttackTimer = 5;
+    [SerializeField] public float BiteAttackTimer = 5;
     [SerializeField] private float BiteAttackCooldown = 5;
 
     [SerializeField] private float BiteBufferTimer;
     [SerializeField] private float BiteBufferCooldown = 5;
     
     
-    [SerializeField] private float SwordAttackTimer = 5;
+    [SerializeField] public float SwordAttackTimer = 5;
     [SerializeField] private float SwordAttackCooldown = 5;
         
     [SerializeField] private float SwordBufferTimer;
@@ -29,7 +29,7 @@ public class PlayerCombatScript : MonoBehaviour
     public int PlayerHP = 1;
     public int PlayerMaxHP = 1;
     [SerializeField] private int BiteAttackDamage = 10;
-    [SerializeField] private bool SwordPurchased = true;
+    [SerializeField] public bool SwordPurchased = true;
     
     
     [SerializeField]

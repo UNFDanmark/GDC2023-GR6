@@ -16,7 +16,7 @@ using UnityEngine;
      [SerializeField] public int playerNumber;
     // [SerializeField] private float Dashtimer;
 
-    private float TimeLeaftBetweenDashes=0;
+    public float TimeLeaftBetweenDashes=0;
     private float DashCooldownBetweenDashes=1;
 
      [SerializeField] private float Maxdashpoints = 30;
