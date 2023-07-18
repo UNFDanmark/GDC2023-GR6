@@ -20,14 +20,15 @@ public class PlayerCombatScript : MonoBehaviour
     [SerializeField] private float SwordBufferTimer;
     [SerializeField] private float SwordBufferCooldown;
 
-    [SerializeField] private float SwordAttackDamage = 10;
+    [SerializeField] private int SwordAttackDamage = 10;
     
         
         
     
     
-    [SerializeField] private float PlayerHP = 100;
-    [SerializeField] private float BiteAttackDamage = 10;
+    public int PlayerHP = 1;
+    public int PlayerMaxHP = 1;
+    [SerializeField] private int BiteAttackDamage = 10;
     [SerializeField] private bool SwordPurchased = true;
     
     
@@ -46,12 +47,7 @@ public class PlayerCombatScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
-        
-        
-        
-        
-        
+       
     }
 
     // Update is called once per frame
@@ -110,14 +106,14 @@ public class PlayerCombatScript : MonoBehaviour
         {
             //change keybind later
             
-            if (Input.GetKey(KeyCode.L) && BiteAttackTimer <= 0 && SwordPurchased == false)
+            if (Input.GetButtonDown("BiteAttackPlayer2") && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
                 print("Player 2 bite attacked!");
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
                 BiteBufferTimer = BiteBufferCooldown;
 
-            } else if (SwordAttackTimer <=0 && SwordPurchased == true)
+            } else if (Input.GetButtonDown("BiteAttackPlayer2") && SwordAttackTimer <=0 && SwordPurchased == true)
             {
                 print("Player 2 sword attacked!");
                 SwordAttackTimer = SwordAttackCooldown;
@@ -148,25 +144,26 @@ public class PlayerCombatScript : MonoBehaviour
         SwordBufferTimer -= Time.deltaTime;
         SwordAttackTimer -= Time.deltaTime;
 
-        /*
-        if (PlayerHP <= 0) ;
+
+        if (PlayerHP <= 0) 
         {
-
+            
             if (MainPlayerScript.playerNumber == 1)
-
             {
-                Player 1 Wins 
-                    Delay
-                Scene
+                print("jubbiiiiiii Player 2 wins");
+                SceneManager.LoadScene("scene1");
             }
-            else
+            else if(MainPlayerScript.playerNumber == 2)
             {
-                Player 2 Wins 
-                    Delay
-                Scene  
+                print("jubbiiiiiii Player 1 wins");
+                SceneManager.LoadScene("scene1");   
             }
+            
+            
         }
-        */
+        
+        
+        
 
 
     }
