@@ -32,7 +32,7 @@ public class AbilityBarUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (movementScript.TimeLeaftBetweenDashes <= 0)
+        if (movementScript.dashCounter >= 10 && movementScript.TimeLeaftBetweenDashes <= 0)
         {
             Color color = DashIconCover.color;
             
