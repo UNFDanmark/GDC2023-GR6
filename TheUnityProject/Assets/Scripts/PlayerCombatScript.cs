@@ -106,18 +106,18 @@ public class PlayerCombatScript : MonoBehaviour
         {
             //change keybind later
             
-            if (Input.GetButtonDown("BiteAttackPlayer2") && BiteAttackTimer <= 0 && SwordPurchased == false)
+            if (Input.GetKey(KeyCode.L) && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
                 print("Player 2 bite attacked!");
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
                 BiteBufferTimer = BiteBufferCooldown;
 
-            } else if (Input.GetButtonDown("BiteAttackPlayer2") && SwordAttackTimer <=0 && SwordPurchased == true)
+            } else if (Input.GetKey(KeyCode.RightShift) && SwordAttackTimer <=0 && SwordPurchased == true)
             {
                 print("Player 2 sword attacked!");
                 SwordAttackTimer = SwordAttackCooldown;
-                BiteAttackArea1.SetActive(true);
+                SwordAttackArea1.SetActive(true);
                 SwordBufferTimer = SwordBufferCooldown;
             }
             
