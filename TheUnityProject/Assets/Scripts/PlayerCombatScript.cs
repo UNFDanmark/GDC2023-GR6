@@ -122,8 +122,6 @@ public class PlayerCombatScript : MonoBehaviour
                 SwordBufferTimer = SwordBufferCooldown;
             }
             
-           
-            
 
         }
         
