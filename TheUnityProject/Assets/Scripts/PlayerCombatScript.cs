@@ -57,31 +57,7 @@ public class PlayerCombatScript : MonoBehaviour
         
         BiteAttackhappend1 = Input.GetButtonDown("BiteAttackPlayer1");
         BiteAttackhappend2 = Input.GetKey(KeyCode.L);
-
-
-    }
-        // this happens when player gets hit
-   
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("BiteAttackArea"))
-
-            {
-                PlayerHP -= BiteAttackDamage;
-                print("Player was hit by bite attack!");
-
-           
-            
-            } else if (other.CompareTag("SwordAttackArea"))
-            {
-                PlayerHP -= SwordAttackDamage;
-                print("Player was hit by Sword attack!");
-                
-            }
-                
-        }
-    private void FixedUpdate()
-    {
+        
         if (MainPlayerScript.playerNumber == 1)
         {
             if (BiteAttackhappend1 && BiteAttackTimer <= 0 && SwordPurchased == false)
@@ -95,7 +71,7 @@ public class PlayerCombatScript : MonoBehaviour
             {
                 print("Player 1 sword attacked!");
                 SwordAttackTimer = SwordAttackCooldown;
-               SwordAttackArea1.SetActive(true);
+                SwordAttackArea1.SetActive(true);
                 SwordBufferTimer = SwordBufferCooldown;
             }
             
@@ -124,6 +100,32 @@ public class PlayerCombatScript : MonoBehaviour
             
 
         }
+
+
+    }
+        // this happens when player gets hit
+   
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("BiteAttackArea"))
+
+            {
+                PlayerHP -= BiteAttackDamage;
+                print("Player was hit by bite attack!");
+
+           
+            
+            } else if (other.CompareTag("SwordAttackArea"))
+            {
+                PlayerHP -= SwordAttackDamage;
+                print("Player was hit by Sword attack!");
+                
+            }
+                
+        }
+    private void FixedUpdate()
+    {
+        
         
 
         if (BiteBufferTimer <=0)
