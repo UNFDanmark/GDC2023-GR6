@@ -22,6 +22,13 @@ public class PlayerCombatScript : MonoBehaviour
 
     [SerializeField] private int SwordAttackDamage = 10;
 
+    private float HeartbeatTimer = 0;
+    public float HeartbeatCooldown;
+    public float HeartBeatVolume;
+    public AudioSource Bite1;
+    public AudioSource Bite2;
+    public AudioSource Bite3;
+    public float BiteVolume;
 
     private bool BiteAttackhappend1;
     private bool BiteAttackhappend2;
@@ -29,6 +36,8 @@ public class PlayerCombatScript : MonoBehaviour
     
     public int PlayerHP = 1;
     public int PlayerMaxHP = 1;
+    public float DramaticHeartAtProcent;
+    public AudioSource Heart;
     [SerializeField] private int BiteAttackDamage = 10;
     [SerializeField] public bool SwordPurchased = true;
     
@@ -86,6 +95,17 @@ public class PlayerCombatScript : MonoBehaviour
             if (BiteAttackhappend2 && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
                 print("Player 2 bite attacked!");
+                switch (UnityEngine.Random.Range(0, 3)) {
+                    case 0:
+                        Bite1.PlayOneShot(Bite1.clip, BiteVolume);
+                        break;
+                    case 1:
+                        Bite2.PlayOneShot(Bite2.clip, BiteVolume);
+                        break;
+                    case 2:
+                        Bite3.PlayOneShot(Bite3.clip, BiteVolume);
+                        break;
+                }
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
                 BiteBufferTimer = BiteBufferCooldown;
@@ -125,8 +145,12 @@ public class PlayerCombatScript : MonoBehaviour
         }
     private void FixedUpdate()
     {
-        
-        
+
+        if (HeartbeatTimer <=  0 && !Heart.isPlaying && PlayerHP <= PlayerMaxHP * DramaticHeartAtProcent) {
+            print("...");
+            Heart.PlayOneShot(Heart.clip, HeartBeatVolume);
+            HeartbeatTimer = HeartbeatCooldown;
+        }
 
         if (BiteBufferTimer <=0)
         {
@@ -140,6 +164,7 @@ public class PlayerCombatScript : MonoBehaviour
             
         }
 
+        HeartbeatTimer -= Time.deltaTime;
         BiteBufferTimer -= Time.deltaTime;
         BiteAttackTimer -= Time.deltaTime;
         SwordBufferTimer -= Time.deltaTime;
