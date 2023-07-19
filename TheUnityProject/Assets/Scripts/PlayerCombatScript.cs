@@ -63,12 +63,25 @@ public class PlayerCombatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+       
+        
+        
         
         BiteAttackhappend1 = Input.GetButtonDown("BiteAttackPlayer1");
         BiteAttackhappend2 = Input.GetKey(KeyCode.L);
         
         if (MainPlayerScript.playerNumber == 1)
         {
+            
+            
+            if (MainPlayerScript.Player1Food >= 2)
+            {
+                SwordPurchased = true;
+            }
+            
             if (BiteAttackhappend1 && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
                 print("Player 1 bite attacked!");
@@ -90,7 +103,13 @@ public class PlayerCombatScript : MonoBehaviour
         }
         if (MainPlayerScript.playerNumber == 2)
         {
-            //change keybind later
+            
+            
+            
+            if (MainPlayerScript.Player2Food >= 2)
+            {
+                SwordPurchased = true;
+            }
             
             if (BiteAttackhappend2 && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
