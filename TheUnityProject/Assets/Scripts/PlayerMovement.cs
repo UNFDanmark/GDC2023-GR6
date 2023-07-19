@@ -18,6 +18,7 @@ using UnityEngine;
 
     public float TimeLeaftBetweenDashes=0;
     public float DashCooldownBetweenDashes=1;
+     
 
      [SerializeField] private float Maxdashpoints = 30;
      //variabel for hvad dashtimeren max tæler op til
@@ -29,13 +30,17 @@ using UnityEngine;
      private float sidewaysInput;
      private bool DashInput;
      private Vector3 direction;
+     
+     private bool isMoving;
+     public Animator animator;
+     
 
 
 
      // Start is called before the first frame update
      void Start()
      {
-
+        
      }
 
      // Update is called once per frame
@@ -82,11 +87,15 @@ using UnityEngine;
                // print("first");
                 if (dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
                 {
+
+                    animator.SetBool("isDashing", true);
+                    
                     dashCounter -= DashCooldown;
 
                     TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
                     Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
                     body.AddForce(moveVector, ForceMode.Impulse);
+                    
                   //  print("second");
                 }
             }
@@ -111,9 +120,7 @@ using UnityEngine;
         
 
         }
-         
-        
-
+    
       
 
          //Dashtimer tæler op til 30
@@ -125,6 +132,20 @@ using UnityEngine;
 
 
          modelTransform.LookAt(direction + modelTransform.position, Vector3.up);
+         print(direction);
+    
+    
+         if (MoveInput != 0 || sidewaysInput != 0)
+           
+         {
+             animator.SetBool("IsMoving", true);
+         }
+         else
+         {
+             animator.SetBool("IsMoving", false);
+         }
+
+
      }
 
      private void FixedUpdate()
