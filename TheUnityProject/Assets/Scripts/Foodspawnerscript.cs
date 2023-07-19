@@ -12,11 +12,15 @@ public class Foodspawnerscript : MonoBehaviour
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
     [SerializeField] private float Ypos;
+    [SerializeField] private float Yrot;
+    [SerializeField] private float Yrotmax;
+    [SerializeField] private float Yrotmin;
      private float FoodSpawnTimer = 0f;
      public float AmountOfFood;
     [SerializeField] private float MaxAmountFood;
     [SerializeField] private float FoodSpawnRate;
     public GameObject foodItem;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +41,7 @@ public class Foodspawnerscript : MonoBehaviour
             
             float Xpos = Random.Range(minX, maxX);
             float Zpos = Random.Range(minZ, maxZ);
+            
 
            GameObject foodItem = Instantiate(Food, new Vector3(Xpos, Ypos, Zpos), Quaternion.identity);
            FoodScript foodScript = foodItem.GetComponent<FoodScript>();

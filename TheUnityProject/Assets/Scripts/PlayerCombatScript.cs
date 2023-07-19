@@ -7,29 +7,30 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCombatScript : MonoBehaviour
 {
-    [SerializeField] private float BiteAttackTimer = 5;
+    [SerializeField] public float BiteAttackTimer = 5;
     [SerializeField] private float BiteAttackCooldown = 5;
 
     [SerializeField] private float BiteBufferTimer;
     [SerializeField] private float BiteBufferCooldown = 5;
     
     
-    [SerializeField] private float SwordAttackTimer = 5;
+    [SerializeField] public float SwordAttackTimer = 5;
     [SerializeField] private float SwordAttackCooldown = 5;
         
     [SerializeField] private float SwordBufferTimer;
     [SerializeField] private float SwordBufferCooldown;
 
     [SerializeField] private int SwordAttackDamage = 10;
-    
-        
-        
+
+
+    private bool BiteAttackhappend1;
+    private bool BiteAttackhappend2;
     
     
     public int PlayerHP = 1;
     public int PlayerMaxHP = 1;
     [SerializeField] private int BiteAttackDamage = 10;
-    [SerializeField] private bool SwordPurchased = true;
+    [SerializeField] public bool SwordPurchased = true;
     
     
     [SerializeField]
@@ -53,11 +54,54 @@ public class PlayerCombatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         
-         
+        BiteAttackhappend1 = Input.GetButtonDown("BiteAttackPlayer1");
+        BiteAttackhappend2 = Input.GetKey(KeyCode.L);
+        
+        if (MainPlayerScript.playerNumber == 1)
+        {
+            if (BiteAttackhappend1 && BiteAttackTimer <= 0 && SwordPurchased == false)
+            {
+                print("Player 1 bite attacked!");
+                BiteAttackTimer = BiteAttackCooldown;
+                BiteAttackArea1.SetActive(true);
+                BiteBufferTimer = BiteBufferCooldown;
+
+            } else if (BiteAttackhappend1 && SwordAttackTimer <=0 && SwordPurchased == true)
+            {
+                print("Player 1 sword attacked!");
+                SwordAttackTimer = SwordAttackCooldown;
+                SwordAttackArea1.SetActive(true);
+                SwordBufferTimer = SwordBufferCooldown;
+            }
             
+           
+            
+
+        }
+        if (MainPlayerScript.playerNumber == 2)
+        {
+            //change keybind later
+            
+            if (BiteAttackhappend2 && BiteAttackTimer <= 0 && SwordPurchased == false)
+            {
+                print("Player 2 bite attacked!");
+                BiteAttackTimer = BiteAttackCooldown;
+                BiteAttackArea1.SetActive(true);
+                BiteBufferTimer = BiteBufferCooldown;
+
+            } else if (BiteAttackhappend2 && SwordAttackTimer <=0 && SwordPurchased == true)
+            {
+                print("Player 2 sword attacked!");
+                SwordAttackTimer = SwordAttackCooldown;
+                SwordAttackArea1.SetActive(true);
+                SwordBufferTimer = SwordBufferCooldown;
+            }
+            
+
+        }
+
+
     }
         // this happens when player gets hit
    
@@ -81,50 +125,7 @@ public class PlayerCombatScript : MonoBehaviour
         }
     private void FixedUpdate()
     {
-        if (MainPlayerScript.playerNumber == 1)
-        {
-            if (Input.GetButtonDown("BiteAttackPlayer1") && BiteAttackTimer <= 0 && SwordPurchased == false)
-            {
-                print("Player 1 bite attacked!");
-                BiteAttackTimer = BiteAttackCooldown;
-                BiteAttackArea1.SetActive(true);
-                BiteBufferTimer = BiteBufferCooldown;
-
-            } else if (Input.GetButtonDown("BiteAttackPlayer1") && SwordAttackTimer <=0 && SwordPurchased == true)
-            {
-                print("Player 1 sword attacked!");
-                SwordAttackTimer = SwordAttackCooldown;
-               SwordAttackArea1.SetActive(true);
-                SwordBufferTimer = SwordBufferCooldown;
-            }
-            
-           
-            
-
-        }
-        if (MainPlayerScript.playerNumber == 2)
-        {
-            //change keybind later
-            
-            if (Input.GetKey(KeyCode.L) && BiteAttackTimer <= 0 && SwordPurchased == false)
-            {
-                print("Player 2 bite attacked!");
-                BiteAttackTimer = BiteAttackCooldown;
-                BiteAttackArea1.SetActive(true);
-                BiteBufferTimer = BiteBufferCooldown;
-
-            } else if (Input.GetKey(KeyCode.RightShift) && SwordAttackTimer <=0 && SwordPurchased == true)
-            {
-                print("Player 2 sword attacked!");
-                SwordAttackTimer = SwordAttackCooldown;
-                SwordAttackArea1.SetActive(true);
-                SwordBufferTimer = SwordBufferCooldown;
-            }
-            
-           
-            
-
-        }
+        
         
 
         if (BiteBufferTimer <=0)

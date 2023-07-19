@@ -13,6 +13,7 @@ public class PlayerHealthBarScript : MonoBehaviour
     public GameObject PlayerInfo;
     public Slider SliderInfo;
     private PlayerCombatScript playerScript;
+    
 
 
     private void Start()
