@@ -18,6 +18,7 @@ public class Foodspawnerscript : MonoBehaviour
     [SerializeField] private float FoodSpawnRate;
     public GameObject foodItem;
     
+    
     // Start is called before the first frame update
     void Start()
     {

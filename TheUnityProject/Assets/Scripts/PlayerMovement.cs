@@ -22,6 +22,8 @@ using UnityEngine;
      [SerializeField] private float Maxdashpoints = 30;
      //variabel for hvad dashtimeren max tæler op til
      [SerializeField] public float dashCounter;
+     public int Player1Food;
+     public int Player2Food;
 
      private float MoveInput;
      private float sidewaysInput;
@@ -39,6 +41,7 @@ using UnityEngine;
      // Update is called once per frame
      void Update()
      {
+      
          if (playerNumber == 1)
          {
              MoveInput = Input.GetAxis("VerticalPlayer1");

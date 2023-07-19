@@ -120,3 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12dc075016808924aac47fe08b074604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FoodSpawner: {fileID: 0}
+  PlayerInfo: {fileID: 1753656415870634126, guid: c22c316d13a657a458b08e2ca2ab5275,
+    type: 3}
