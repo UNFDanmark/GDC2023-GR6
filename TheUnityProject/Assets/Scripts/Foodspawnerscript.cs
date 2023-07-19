@@ -17,6 +17,10 @@ public class Foodspawnerscript : MonoBehaviour
     [SerializeField] private float Yrotmin;
      private float FoodSpawnTimer = 0f;
      public float AmountOfFood;
+    public AudioSource AudioPickup1;
+    public AudioSource AudioPickup2;
+    public AudioSource AudioPikcup3;
+    public float PickupVolume;
     [SerializeField] private float MaxAmountFood;
     [SerializeField] private float FoodSpawnRate;
     public GameObject foodItem;
@@ -46,6 +50,10 @@ public class Foodspawnerscript : MonoBehaviour
            GameObject foodItem = Instantiate(Food, new Vector3(Xpos, Ypos, Zpos), Quaternion.identity);
            FoodScript foodScript = foodItem.GetComponent<FoodScript>();
            foodScript.FoodSpawner = this;
+            foodScript.AudioPickup1 = AudioPickup1;
+            foodScript.AudioPickup2 = AudioPickup2;
+            foodScript.AudioPickup3 = AudioPikcup3;
+            foodScript.PickupVolume = PickupVolume;
            AmountOfFood++;
           
             FoodSpawnTimer = 0;

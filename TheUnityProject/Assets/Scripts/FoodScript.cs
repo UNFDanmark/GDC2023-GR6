@@ -8,7 +8,11 @@ public class FoodScript : MonoBehaviour
     public Foodspawnerscript FoodSpawner;
     public GameObject Player1Info;
     public GameObject Player2Info;
-    
+    public AudioSource AudioPickup1;
+    public AudioSource AudioPickup2;
+    public AudioSource AudioPickup3;
+    public float PickupVolume;
+
     private PlayerMovement PlayerScript1;
     private PlayerMovement PlayerScript2;
     
@@ -46,7 +50,17 @@ public class FoodScript : MonoBehaviour
             
 
             FoodSpawner.AmountOfFood--;
-            
+            switch (Random.Range(0, 3)) {
+                case 0:
+                    AudioPickup1.PlayOneShot(AudioPickup1.clip, PickupVolume);
+                    break;
+                case 1:
+                    AudioPickup2.PlayOneShot(AudioPickup2.clip, PickupVolume);
+                    break;
+                case 2:
+                    AudioPickup3.PlayOneShot(AudioPickup3.clip, PickupVolume);
+                    break;
+            }
            
             Destroy(gameObject);
              

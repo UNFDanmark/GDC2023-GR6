@@ -19,6 +19,9 @@ using UnityEngine;
     public float TimeLeaftBetweenDashes=0;
     public float DashCooldownBetweenDashes=1;
 
+    public AudioSource DashAudio;
+    public float DashAudioVolume;
+
      [SerializeField] private float Maxdashpoints = 30;
      //variabel for hvad dashtimeren max tæler op til
      [SerializeField] public float dashCounter;
@@ -83,7 +86,8 @@ using UnityEngine;
                 if (dashCounter >= DashCooldown && TimeLeaftBetweenDashes <= 0)
                 {
                     dashCounter -= DashCooldown;
-
+                    DashAudio.PlayOneShot(DashAudio.clip, DashAudioVolume);
+                    print("...");
                     TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
                     Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
                     body.AddForce(moveVector, ForceMode.Impulse);
@@ -101,7 +105,7 @@ using UnityEngine;
                 {
                     
                     dashCounter -= DashCooldown;
-
+                    DashAudio.PlayOneShot(DashAudio.clip, DashAudioVolume);
                     TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
                     Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
                     body.AddForce(moveVector, ForceMode.Impulse);
