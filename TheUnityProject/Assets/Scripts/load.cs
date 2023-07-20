@@ -16,7 +16,7 @@ public class load : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            SceneManager.LoadScene("scene1");
+            SceneManager.LoadScene("lore");
         }
     }
 }

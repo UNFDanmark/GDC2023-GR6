@@ -41,11 +41,13 @@ public class FoodScript : MonoBehaviour
             {
                
                other.GetComponentInParent<PlayerMovement>().Player1Food++;
+               other.GetComponentInParent<PlayerCombatScript>().PlayerHP++;
             } 
             
             if (other.GetComponentInParent<PlayerMovement>().playerNumber == 2)
             {
                 other.GetComponentInParent<PlayerMovement>().Player2Food++;
+                other.GetComponentInParent<PlayerCombatScript>().PlayerHP++;
             }
             
 

@@ -248,7 +248,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6214713b2ac231b4a80f83bec0aa1a26, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.107
+  m_Volume: 0.512
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4171,7 +4171,7 @@ PrefabInstance:
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.3
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4181,27 +4181,27 @@ PrefabInstance:
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6589889
+      value: -0.6449817
       objectReference: {fileID: 0}
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2784447
+      value: -0.30936095
       objectReference: {fileID: 0}
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6428103
+      value: 0.62898415
       objectReference: {fileID: 0}
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.27385616
+      value: -0.30442303
       objectReference: {fileID: 0}
     - target: {fileID: 1940974738990972600, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4266,7 +4266,7 @@ PrefabInstance:
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: DashAudioVolume
-      value: 6.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4296,7 +4296,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: BiteVolume
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4316,7 +4316,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: HeartBeatVolume
-      value: 7
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4342,6 +4342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BiteBufferCooldown
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: SwordAttackCooldown
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -12403,7 +12408,7 @@ PrefabInstance:
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: DashAudioVolume
-      value: 6.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -12433,7 +12438,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: BiteVolume
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -12443,7 +12448,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: HeartBeatVolume
-      value: 7
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -12453,7 +12458,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: SwordAttackCooldown
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
