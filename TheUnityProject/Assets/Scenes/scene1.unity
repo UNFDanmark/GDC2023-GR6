@@ -4246,12 +4246,17 @@ PrefabInstance:
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: DashCooldown
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: playerNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: Maxdashpoints
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -12387,6 +12392,16 @@ PrefabInstance:
       objectReference: {fileID: 732440259}
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
+      propertyPath: DashCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: Maxdashpoints
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
       propertyPath: DashAudioVolume
       value: 6.5
       objectReference: {fileID: 0}
@@ -12438,6 +12453,11 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: SwordAttackCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: SwordBufferCooldown
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6188465266521416845, guid: c22c316d13a657a458b08e2ca2ab5275,
