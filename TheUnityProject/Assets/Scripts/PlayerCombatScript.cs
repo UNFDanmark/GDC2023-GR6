@@ -75,9 +75,8 @@ public class PlayerCombatScript : MonoBehaviour
         
         if (MainPlayerScript.playerNumber == 1)
         {
-            
-            
-            if (MainPlayerScript.Player1Food >= 50)
+
+            if (MainPlayerScript.Player1Food >= 30)
             {
                 SwordPurchased = true;
             }
@@ -117,7 +116,7 @@ public class PlayerCombatScript : MonoBehaviour
             
             
             
-            if (MainPlayerScript.Player2Food >= 50)
+            if (MainPlayerScript.Player2Food >= 30)
             {
                 SwordPurchased = true;
             }
@@ -171,7 +170,17 @@ public class PlayerCombatScript : MonoBehaviour
                 print("Player was hit by Sword attack!");
                 
             }
-                
+
+            if (MainPlayerScript.playerNumber == 1 && PlayerHP <= 0)
+            {
+                print("LNMAIO");
+                SceneManager.LoadScene("Wizard Win");
+            }
+
+            if (MainPlayerScript.playerNumber == 2 && PlayerHP <= 0)
+            {
+                SceneManager.LoadScene("Fatass Win");
+            }
         }
     private void FixedUpdate()
     {
@@ -199,24 +208,7 @@ public class PlayerCombatScript : MonoBehaviour
         BiteAttackTimer -= Time.deltaTime;
         SwordBufferTimer -= Time.deltaTime;
         SwordAttackTimer -= Time.deltaTime;
-
-
-        if (PlayerHP <= 0) 
-        {
-            
-            if (MainPlayerScript.playerNumber == 1)
-            {
-                print("jubbiiiiiii Player 2 wins");
-                SceneManager.LoadScene("scene1");
-            }
-            else if(MainPlayerScript.playerNumber == 2)
-            {
-                print("jubbiiiiiii Player 1 wins");
-                SceneManager.LoadScene("scene1");   
-            }
-            
-            
-        }
+        
         
         
         
