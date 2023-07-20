@@ -248,7 +248,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6214713b2ac231b4a80f83bec0aa1a26, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.107
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -992,6 +992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 187988691}
+  - component: {fileID: 187988692}
   m_Layer: 0
   m_Name: Sound God
   m_TagString: Untagged
@@ -1023,6 +1024,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &187988692
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187988690}
+  m_Enabled: 1
 --- !u!1001 &207561660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4252,7 +4261,7 @@ PrefabInstance:
     - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: DashAudioVolume
-      value: 1
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4277,7 +4286,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: PlayerHP
-      value: 100
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4287,7 +4296,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: PlayerMaxHP
-      value: 100
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4302,7 +4311,7 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: HeartBeatVolume
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -4327,12 +4336,12 @@ PrefabInstance:
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: BiteBufferCooldown
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: SwordBufferCooldown
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
@@ -8756,9 +8765,9 @@ MonoBehaviour:
   AudioPickup1: {fileID: 65158791}
   AudioPickup2: {fileID: 1334327822}
   AudioPikcup3: {fileID: 426397418}
-  PickupVolume: 1
+  PickupVolume: 5
   MaxAmountFood: 50
-  FoodSpawnRate: 1
+  FoodSpawnRate: 0.5
   foodItem: {fileID: 0}
 --- !u!4 &1586745671
 Transform:
@@ -12376,6 +12385,11 @@ PrefabInstance:
       propertyPath: DashAudio
       value: 
       objectReference: {fileID: 732440259}
+    - target: {fileID: 3158024997829310422, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: DashAudioVolume
+      value: 6.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: Bite1
@@ -12396,6 +12410,36 @@ PrefabInstance:
       propertyPath: Heart
       value: 
       objectReference: {fileID: 1618882644}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: PlayerHP
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: BiteVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: PlayerMaxHP
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: HeartBeatVolume
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: BiteBufferCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332453492472198693, guid: c22c316d13a657a458b08e2ca2ab5275,
+        type: 3}
+      propertyPath: SwordAttackCooldown
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6188465266521416845, guid: c22c316d13a657a458b08e2ca2ab5275,
         type: 3}
       propertyPath: m_IsActive
