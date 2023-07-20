@@ -63,15 +63,38 @@ public class PlayerCombatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+       
+        
+        
         
         BiteAttackhappend1 = Input.GetButtonDown("BiteAttackPlayer1");
-        BiteAttackhappend2 = Input.GetKey(KeyCode.L);
+        BiteAttackhappend2 = Input.GetKey(KeyCode.Return);
         
         if (MainPlayerScript.playerNumber == 1)
         {
+
+            if (MainPlayerScript.Player1Food >= 30)
+            {
+                SwordPurchased = true;
+            }
+            
             if (BiteAttackhappend1 && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
                 print("Player 1 bite attacked!");
+                switch (UnityEngine.Random.Range(0, 3)) {
+                    case 0:
+                        Bite1.PlayOneShot(Bite1.clip, BiteVolume);
+                        break;
+                    case 1:
+                        Bite2.PlayOneShot(Bite2.clip, BiteVolume);
+                        break;
+                    case 2:
+                        Bite3.PlayOneShot(Bite3.clip, BiteVolume);
+                        break;
+                }
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
                 BiteBufferTimer = BiteBufferCooldown;
@@ -90,7 +113,13 @@ public class PlayerCombatScript : MonoBehaviour
         }
         if (MainPlayerScript.playerNumber == 2)
         {
-            //change keybind later
+            
+            
+            
+            if (MainPlayerScript.Player2Food >= 30)
+            {
+                SwordPurchased = true;
+            }
             
             if (BiteAttackhappend2 && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
@@ -141,7 +170,17 @@ public class PlayerCombatScript : MonoBehaviour
                 print("Player was hit by Sword attack!");
                 
             }
-                
+
+            if (MainPlayerScript.playerNumber == 1 && PlayerHP <= 0)
+            {
+                print("LNMAIO");
+                SceneManager.LoadScene("Wizard Win");
+            }
+
+            if (MainPlayerScript.playerNumber == 2 && PlayerHP <= 0)
+            {
+                SceneManager.LoadScene("Fatass Win");
+            }
         }
     private void FixedUpdate()
     {
@@ -169,24 +208,7 @@ public class PlayerCombatScript : MonoBehaviour
         BiteAttackTimer -= Time.deltaTime;
         SwordBufferTimer -= Time.deltaTime;
         SwordAttackTimer -= Time.deltaTime;
-
-
-        if (PlayerHP <= 0) 
-        {
-            
-            if (MainPlayerScript.playerNumber == 1)
-            {
-                print("jubbiiiiiii Player 2 wins");
-                SceneManager.LoadScene("scene1");
-            }
-            else if(MainPlayerScript.playerNumber == 2)
-            {
-                print("jubbiiiiiii Player 1 wins");
-                SceneManager.LoadScene("scene1");   
-            }
-            
-            
-        }
+        
         
         
         

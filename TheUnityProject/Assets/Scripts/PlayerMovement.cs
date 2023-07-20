@@ -18,9 +18,11 @@ using UnityEngine;
 
     public float TimeLeaftBetweenDashes=0;
     public float DashCooldownBetweenDashes=1;
-     
 
-     [SerializeField] private float Maxdashpoints = 30;
+    public AudioSource DashAudio;
+    public float DashAudioVolume;
+
+        [SerializeField] private float Maxdashpoints = 30;
      //variabel for hvad dashtimeren max tæler op til
      [SerializeField] public float dashCounter;
      public int Player1Food;
@@ -91,7 +93,7 @@ using UnityEngine;
                     animator.SetBool("isDashing", true);
                     
                     dashCounter -= DashCooldown;
-
+                    DashAudio.PlayOneShot(DashAudio.clip, DashAudioVolume);
                     TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
                     Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
                     body.AddForce(moveVector, ForceMode.Impulse);
@@ -110,7 +112,7 @@ using UnityEngine;
                 {
                     
                     dashCounter -= DashCooldown;
-
+                    DashAudio.PlayOneShot(DashAudio.clip, DashAudioVolume);
                     TimeLeaftBetweenDashes = DashCooldownBetweenDashes;
                     Vector3 moveVector = direction * (DashSpeed * PlayerSpeed);
                     body.AddForce(moveVector, ForceMode.Impulse);

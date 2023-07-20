@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: dfe9926eb8495e7409c9966472a77e68
+  - enabled: 1
+    path: Assets/Scenes/scene1.unity
+    guid: 555f97261d032bd478a2ae58b45e40c5
+  - enabled: 1
+    path: Assets/Scenes/Wizard Win.unity
+    guid: fef4ddb243155a940867f00773ae7152
+  - enabled: 1
+    path: Assets/Scenes/Fatass Win.unity
+    guid: 2bad17103303b1042bf2159aede6f180
+  - enabled: 1
+    path: Assets/Scenes/lore.unity
+    guid: 76e3353b27b32ac459bd03e97e253dbd
   m_configObjects: {}
