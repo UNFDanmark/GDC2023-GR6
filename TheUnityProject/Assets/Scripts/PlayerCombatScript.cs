@@ -71,13 +71,13 @@ public class PlayerCombatScript : MonoBehaviour
         
         
         BiteAttackhappend1 = Input.GetButtonDown("BiteAttackPlayer1");
-        BiteAttackhappend2 = Input.GetKey(KeyCode.L);
+        BiteAttackhappend2 = Input.GetKey(KeyCode.Return);
         
         if (MainPlayerScript.playerNumber == 1)
         {
             
             
-            if (MainPlayerScript.Player1Food >= 2)
+            if (MainPlayerScript.Player1Food >= 50)
             {
                 SwordPurchased = true;
             }
@@ -85,6 +85,17 @@ public class PlayerCombatScript : MonoBehaviour
             if (BiteAttackhappend1 && BiteAttackTimer <= 0 && SwordPurchased == false)
             {
                 print("Player 1 bite attacked!");
+                switch (UnityEngine.Random.Range(0, 3)) {
+                    case 0:
+                        Bite1.PlayOneShot(Bite1.clip, BiteVolume);
+                        break;
+                    case 1:
+                        Bite2.PlayOneShot(Bite2.clip, BiteVolume);
+                        break;
+                    case 2:
+                        Bite3.PlayOneShot(Bite3.clip, BiteVolume);
+                        break;
+                }
                 BiteAttackTimer = BiteAttackCooldown;
                 BiteAttackArea1.SetActive(true);
                 BiteBufferTimer = BiteBufferCooldown;
@@ -106,7 +117,7 @@ public class PlayerCombatScript : MonoBehaviour
             
             
             
-            if (MainPlayerScript.Player2Food >= 2)
+            if (MainPlayerScript.Player2Food >= 50)
             {
                 SwordPurchased = true;
             }
